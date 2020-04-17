@@ -40,7 +40,8 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
   key_name      = aws_key_pair.generated_key.key_name
-  security_groups = [var.security_group_limited]
+  #The security group is not "security_groups" like normal because we didn't put this instance inside of a subnet like we should have
+  vpc_security_group_ids = [var.security_group_limited]
   tags = {
     Name = join("", ["enigma-web-", random_string.key_name.result])
   }
