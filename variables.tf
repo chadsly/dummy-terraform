@@ -17,3 +17,7 @@ variable "AWS_SECRET_KEY"{
 variable "security_group_limited"{
   default = "sg-053f8c0f59bf6ce10"
 }
+
+variable "enigma_ami" {
+  default = "ami-05a474d0ebaba16c0"
+}
